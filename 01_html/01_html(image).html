@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- day2 공부 시간입니다. -->
+    <!-- 아래는 상대 경로로 작성되었습니다. : 현재 파일 기준-->
+    <img src="./batting.jpeg" alt="베팅 사진이 로드되지 않았습니다." />
+    <!-- src는 경로, alt는 이미지 로드 실패시 나타냄, -->
+    <img
+      src="C:\Users\%EC%B5%9C%EC%97%B0%EC%B2%A0\OneDrive\%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4\github\CodingOn\01_html\batting.jpeg"
+      alt="dddd"
+    />
+    <!-- 절대경로의 경우, live server일때에는 기준점이 서버가 되어 못찾음 . 작업 환경이 기준-->
+    <!-- 라이브 서버 상의 절대 경로는 다르게 쳐야함 -->
+    <img src="\01_html\batting.jpeg" alt="라이브서버 상에서 송출되어짐" />
+    <br />
+    <!-- default는 원래 창에서 열림 target 설정을 _black로 바꿔줘야 함-->
+    <a href="https://naver.com/" target="_self">네이버(self)</a>
+    <a href="https://naver.com/" target="_blank">네이버(blank)</a>
+
+    <!-- form tag : 입력 폼을 감싸고 있는 테그-->
+    <form>
+      <input type="button" value="버튼" />
+      <input type="text" placeholder="text" />
+      <input type="password" placeholder="password" />
+      <!-- 네임설정을 기준으로 함 -->
+      <!-- checkbox에서는 여러개를 선택하는 게 가능함 
+        name : 체크박스들을 묶어주는 역할을 함
+        value : 실제로 체크 박스의 값을 가져올 때 나오는 값이라고 보면 됨.
+        checked 속성은 체크되어 출력할 것인지를 선택하는 옵션-->
+      <input type="checkbox" name="fruits" value="apple" checked />사과
+      <input type="checkbox" name="fruits" value="banana" />바나나
+      <!-- radio는 하나만 선택이 가능함, 단, 같은 그룹으로 묶어주지 않으면 별개의 라디오로 인식함  
+          name, value : 체크박스와 동잃함-->
+      <input type="radio" name="gender" id="" value="men" checked /> 남자
+      <input type="radio" name="gender" id="" value="woman" /> 여자
+      <!-- date는 년월일, datetime은 시간까지 포함 -->
+      <input type="date" name="" id="" />
+      <input type="datetime-local" name="" id="" />
+      <!-- select -->
+      <select>
+        <optgroup label="커피">
+          <option value="americano">아메리카노</option>
+          <option value="cafeLatte" selected>카페라떼</option>
+          <option value="espresso">에스프레소</option>
+        </optgroup>
+        <optgroup label="티">
+          <option value="earlgrey">얼그레이티</option>
+          <option value="jasmin">자스민티</option>
+        </optgroup>
+      </select>
+    </form>
+  </body>
+</html>
