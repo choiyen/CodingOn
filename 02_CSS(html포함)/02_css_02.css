@@ -1,0 +1,52 @@
+/* 기본 선택자 혹은 단일 선택자라고 부른다. */
+/* 테그 선택자 : 테그 이름 사용 */
+li {
+  color: red;
+}
+/* 클래스 선택자 .클래스이름 */
+.orange {
+  color: orange;
+}
+/* 아이디 선택자 : #아이디이름 */
+#blue {
+  color: blue;
+}
+/* class는 여러개 0, 아이디는 규칙상 html 문서 상에 하나만 존재하여야 한다  */
+
+/* 복합 선택차 */
+span.orange {
+  background-color: yellow;
+}
+/* 자식 선택자 : 선택자 > 선택자 */
+ul > .orange {
+  background-color: red;
+}
+/* 하위(후손) 선택자 : 선택자 선택자 */
+div .orange {
+  text-decoration: line-through;
+}
+/* 인접 형제 선택자 : 선택자 + 선택자 */
+.orange + li {
+  color: gold;
+}
+/* 일반 형제 선택자 : 선택자 ~ 선택자*/
+
+.orange ~ li {
+  background-color: aqua;
+}
+
+/* 가상 클래스 선택자 */
+/* hover : 마우스를 올리고 있는 동안  */
+
+a:hover {
+  color: white;
+  background-color: black;
+}
+/* active ; 마우스 클릭하고 있는 동안, */
+a:active {
+  background-color: red;
+}
+/* focus : focus가 있는 동안 */
+input:focus {
+  background-color: grey;
+}
