@@ -1,0 +1,31 @@
+/* font */
+@font-face {
+  /* noon에서 가져옴 */
+  font-family: "HakgyoansimByeolbichhaneulTTF-B";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimByeolbichhaneulTTF-B.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+.box {
+  width: 200px;
+  height: 200px;
+  /* px, em, rem, % 등으로 지정할 수 있음. */
+  /* px : 디바이스의 해상도에 따라 변할 수는 있으나, 고정값 */
+  /* em : 상위 요소 크기의 ??배로 하겠다.
+     rem: 문서의 최상의 요소, html 요소 크기의 몇배로 할 것인가?
+     % : 상위 요소의 %인가? */
+  font-size: 16px;
+  font-weight: 700;
+  /* 요소의 글꼴 크기의 배수로 지정 */
+  line-height: 4;
+}
+
+.google {
+  font-family: "SUSE", sans-serif;
+  text-align: center;
+}
+
+.noon {
+  font-family: "HakgyoansimByeolbichhaneulTTF-B";
+}

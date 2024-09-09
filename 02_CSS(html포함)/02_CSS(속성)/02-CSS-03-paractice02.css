@@ -1,0 +1,50 @@
+/* .box {
+  width: auto;
+  height: 200px;
+  background-color: orange;
+}
+.box1 {
+  width: 200px;
+  height: 100px;
+  margin: 0;
+  background-color: skyblue;
+  display: inline-block;
+}
+.box2 {
+  width: 200px;
+  height: 100px;
+  margin: 0 30px;
+  background-color: green;
+  display: inline-block;
+}
+.box3 {
+  width: 200px;
+  height: 100px;
+  margin: 0 30px;
+  background-color: red;
+  display: inline-block;
+} */
+
+.orange {
+  width: auto;
+  height: 200px;
+  background-color: orange;
+}
+.orange div {
+  display: inline-block;
+  width: 200px;
+  height: 100px;
+  margin-left: 30px;
+}
+.orange div:nth-child(1) {
+  /* HTML */
+  background-color: skyblue;
+}
+.orange div:nth-child(2) {
+  /* css */
+  background-color: green;
+}
+.orange div:nth-child(3) {
+  /* Javascript */
+  background-color: red;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./02-css-03.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap"
+      rel="stylesheet"
+    />
+    <title>CSS03</title>
+  </head>
+  <body style="margin: 0">
+    <div class="box">
+      <p>text</p>
+    </div>
+    <!-- font-family -->
+    <p class="google">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos similique
+      ab reprehenderit mollitia, ea molestias aliquid unde? Quam dicta
+      consectetur eum hic in eveniet eos porro earum, debitis qui architecto.
+    </p>
+    <p class="noon">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat,
+      laudantium autem reiciendis repellat dolorum, explicabo repudiandae
+      deserunt debitis exercitationem doloribus deleniti nesciunt quidem nisi at
+      consequatur, suscipit quam adipisci ipsa.
+    </p>
+
+    <!-- inline & block -->
+    <!-- width가 먹히지 않음 -->
+    <span style="background-color: aqua; width: 200px">Hello</span>
+    <span style="background-color: blue">world</span>
+    <div style="background-color: orange; width: 100px; display: inline-block">
+      hello
+    </div>
+    <div style="background-color: red">world</div>
+
+    <!-- margin -->
+    <div
+      style="width: 200px; height: 200px; background-color: blue; margin: auto"
+    ></div>
+    <div
+      style="width: 200px; height: 200px; background-color: blue; margin: -20px"
+    >
+      margin을 마이너스로?
+    </div>
+    <!-- width & height -->
+    <!-- vw, vh : 브라우저 기준으로 반응형 적용이 가능하다. -->
+    <div style="background-color: aqua; width: 80vw; height: 100px"></div>
+    <!-- max width.height &  min-width/height -->
+    <div
+      style="
+        background-color: orange;
+        width: calc(30vw - 100px);
+        height: 30vw;
+        max-width: 400px;
+        min-width: 100px;
+      "
+    ></div>
+    <div style="height: 100px; line-height: 100px">안녕하세요</div>
+  </body>
+</html>

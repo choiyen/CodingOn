@@ -1,0 +1,17 @@
+/* .box::before {
+  content: "택시";
+}
+.box::after {
+  content: "빨리";
+} */
+[disabled] {
+  background-color: red;
+}
+[placeholder="이름"] {
+  background-color: orange;
+}
+/* 띄우면 input 테그의 하위 테그 중에 placeholder를 찾기에 작용되지 않음 */
+/* 코드의 경우, 한 가지 부분만 틀려도 다른 결과를 내기에 주의하자. */
+input:not([placeholder]) {
+  background-color: blue;
+}

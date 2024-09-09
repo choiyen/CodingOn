@@ -50,3 +50,47 @@ a:active {
 input:focus {
   background-color: grey;
 }
+
+/* n번쨰 자식 선택자 : first-child = ABC가 형제 요소 중에 첫번째라면 선택*/
+.fruits span:first-child {
+  color: red;
+}
+.fruits div:first-child {
+  color: blue;
+}
+/* last - child ; ABC가 형제 요소 중에 막내 일때 선택 */
+.fruits h3:last-child {
+  color: coral;
+}
+/* nth-child(n) ; ABC가 형제 요소 중에 n번쨰 */
+.fruits *:nth-child(2) {
+  color: aqua;
+}
+.fruits *:nth-child(2n) {
+  background-color: yellow;
+}
+.fruits *:nth-child(2n + 1) {
+  background-color: green;
+}
+/* not : ABC : not(XYZ) -> XYZ가 아닌 ABC요소를 선택 */
+.fruits *:not(span) {
+  text-decoration: overline;
+}
+/* 가상 요소 선택자 */
+/* before : 요소 앞에! */
+.fruits ::before {
+  content: "과일 목록 시작!";
+}
+/* after : 요소 앞에! */
+.fruits ::after {
+  content: "과일 목록 끝!";
+}
+
+/* 속성 선택자 */
+[readonly] {
+  background-color: lightgray;
+}
+/* input:not([placeholder])
+{
+  background-color: aqua;
+} */
