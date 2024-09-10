@@ -1,0 +1,23 @@
+.square {
+  width: 100px;
+  height: 100px;
+  border: 1px solid;
+  display: inline-block;
+  background-color: blueviolet;
+  opacity: 1;
+}
+.opacity:hover {
+  opacity: 0;
+}
+
+/* display : none -> 주로 사라져있는 모달창을 띄울 때 쓰는 게 좋아보임 */
+/* opacity : 0 -> hover 옵션과 함께 사용하면 적합 */
+/* visibility : hidden -> 이미지 테그를 사용할 때 주로 쓰면 적합 */
+
+.scroll {
+  overflow: scroll;
+  /* overflow-y:auto; */
+}
+.auto {
+  overflow: auto;
+}

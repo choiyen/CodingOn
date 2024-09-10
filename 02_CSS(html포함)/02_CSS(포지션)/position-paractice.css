@@ -1,0 +1,44 @@
+.body {
+  margin: 0;
+  background: linear-gradient(white, blue);
+  height: 2000px;
+}
+.position {
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  font-size: 10px;
+  line-height: 100px;
+}
+.container {
+  width: 500px;
+  height: 500px;
+  border: 5px solid black;
+  padding: 0;
+}
+.orginal {
+  position: static;
+  background-color: red;
+}
+.relative {
+  position: relative;
+  left: 50px;
+  top: 30px;
+  background-color: orange;
+}
+.absolute {
+  position: absolute;
+  background-color: yellow;
+  right: 30px;
+  bottom: 100px;
+}
+.fixed {
+  position: fixed;
+  right: 100px;
+  top: 100px;
+  background-color: green;
+}
+/* 코드를 리뷰하며 느낀점 : 
+ CSS를 작성할 때에도 공통으로 작성되는 부분을 따로 빼서 작성하자. 
+ 동일한 부분을 여러번 반복하는 건 좋은 방식이 아님.
+ class 명을 의미 없는 item으로 표기하는 것도 좋지 않음*/

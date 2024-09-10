@@ -10,6 +10,6 @@ div {
   line-height: 10vw;
   text-align: center;
   margin-top: calc(50vh - 5vw);
-  /* margin: calc(50vh - 5vw) auto; */
+  /* margin: calc((100vh - 10vw) / 2) auto; */
   color: white;
 }

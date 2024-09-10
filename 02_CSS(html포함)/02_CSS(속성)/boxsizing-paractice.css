@@ -1,0 +1,21 @@
+.container 
+{
+  display: flex;
+}
+.box2 
+{
+  width: 100px;
+  height: 100px;
+  padding: 20px;
+  border: 15px solid red;
+  background-color: orange;
+  margin: 20px;
+  display: inline-block;
+}
+div:first-child {
+  box-sizing: content-box;
+}
+div:last-child {
+  box-sizing: border-box;
+}
+/* 

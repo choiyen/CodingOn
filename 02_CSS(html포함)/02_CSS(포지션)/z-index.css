@@ -1,0 +1,41 @@
+.parent {
+  position: relative;
+  width: 300px;
+  border: 3px dotted dodgerblue;
+}
+.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+}
+.circle1 {
+  background-color: #624e88;
+  top: 0;
+  left: 200px;
+  z-index: 0;
+}
+.circle2 {
+  background-color: #8967b3;
+  top: 0;
+  left: 150px;
+  z-index: 1;
+}
+.circle3 {
+  background-color: #cb80ab;
+  top: 0;
+  left: 100px;
+  z-index: 2;
+}
+.circle4 {
+  background-color: #e6d9a2;
+  top: 0;
+  left: 50px;
+  z-index: 1;
+}
+.circle5 {
+  background-color: #cfcfca;
+  top: 0;
+  left: 0px;
+  z-index: 0;
+}
