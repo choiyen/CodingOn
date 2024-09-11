@@ -1,0 +1,58 @@
+.container {
+  margin-bottom: 30px;
+  width: 500px;
+  height: 500px;
+  background-color: blueviolet;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* default는 no wrap */
+}
+.container div {
+  width: 100px;
+  height: 100px;
+  background-color: greenyellow;
+  margin-left: 10px;
+}
+.container2 {
+  margin-bottom: 30px;
+  width: 500px;
+  height: 500px;
+  background-color: blueviolet;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.container2 .item {
+  width: 100px;
+  height: 100px;
+  background-color: greenyellow;
+  margin-left: 10px;
+}
+.container3 {
+  margin-bottom: 30px;
+  width: 500px;
+  height: 500px;
+  background-color: blueviolet;
+  display: flex;
+  flex-direction: column;
+}
+.container3 .item {
+  width: 100px;
+  height: 100px;
+  background-color: greenyellow;
+  margin-bottom: 10px;
+}
+.container4 {
+  margin-bottom: 30px;
+  width: 500px;
+  height: 500px;
+  background-color: blueviolet;
+  display: flex;
+  flex-direction: column-reverse;
+}
+.container4 .item {
+  width: 100px;
+  height: 100px;
+  background-color: greenyellow;
+  margin-bottom: 10px;
+}

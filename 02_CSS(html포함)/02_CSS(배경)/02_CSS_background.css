@@ -1,0 +1,55 @@
+div {
+  width: 300px;
+  height: 200px;
+  margin-bottom: 30px;
+}
+.grad-1 {
+  background: linear-gradient(grey, tomato);
+}
+.grad-2 {
+  background: linear-gradient(90deg, blue, pink);
+  /* right로 했을 때는 위와 동일하게 나옴 */
+  /* background: linear-gradient(to left, pink, green); */
+}
+.grad-3 {
+  background: linear-gradient(90deg, blue, 75%, pink);
+}
+/* background-image */
+.background-image {
+  background-color: orange;
+  background-image: url("https://item.kakaocdn.net/do/d84248170c2c52303db27306a00fb861f604e7b0e6900f9ac53a43965300eb9a");
+  width: 500px;
+  height: 500px;
+  background-repeat: no-repeat;
+  /*반복없음 */
+  /* background-repeat: repeat-x; */
+  /* x축 반복 */
+  /* background-repeat: repeat-y; */
+  /* y축 반복 */
+  /* background-repeat: repeat; */
+  /* default X,y축 반복 */
+  /* background-position: left top; */
+  /* default */
+  /* background-position: center; */
+  /* 그림을 가운데로 이동 */
+  background-position: 10px 20px;
+  /* x축 y축 : 하나만 넣으면 x축에 대해서 이동 */
+  /* background-size */
+  background-size: auto;
+  /* 기본 값 */
+  background-size: 100px;
+  background-size: 100px 50px;
+  background-size: cover;
+  background-size: contain;
+  /* cover : 더 넒은 값에 맞춤, contain : 더 짧은 값에 맞춤 */
+}
+
+.scroll {
+  background-image: url("https://item.kakaocdn.net/do/d84248170c2c52303db27306a00fb861f604e7b0e6900f9ac53a43965300eb9a");
+  /* background-attactment : 요소의 배경 이미지 스크롤 특성 */
+  overflow: scroll;
+  /* default : scroll */
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-attachment: local;
+}

@@ -1,0 +1,21 @@
+div {
+  display: inline-block;
+  margin-right: 50px;
+}
+img {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+}
+#img-transforms1 {
+  transform: skewY(25deg) translate(100px, 200px);
+  z-index: 3;
+}
+#img-transforms2 {
+  transform: skewY(25deg) translate(200px, 150px);
+  z-index: 2;
+}
+#img-transforms3 {
+  transform: skewY(25deg) translate(300px, 100px);
+  z-index: 1;
+}

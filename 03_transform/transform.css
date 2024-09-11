@@ -1,0 +1,12 @@
+div {
+  display: inline-block;
+  margin-right: 50px;
+}
+img {
+  width: 100px;
+  height: 100px;
+}
+
+hr {
+  margin-bottom: 100px;
+}

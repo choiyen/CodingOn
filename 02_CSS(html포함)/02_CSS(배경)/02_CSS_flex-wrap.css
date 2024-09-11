@@ -1,0 +1,36 @@
+.container2 {
+  width: 500px;
+  height: 500px;
+  border: 1px solid red;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: brown;
+}
+div .item {
+  width: 100px;
+  height: 100px;
+  background-color: aquamarine;
+  margin-left: 3px;
+}
+
+.container1 {
+  width: 500px;
+  height: 500px;
+  border: 1px solid red;
+  display: flex;
+  flex-wrap: nowrap;
+  background-color: brown;
+}
+/* justify-content ; 주 축의 정렬 방법
+     -flex-start ; default
+      flex-end, center, space-between, space-around,space-evenly
+      
+   align-items : 교차 축의 한 줄 정렬 방법
+    stretch : default
+    flex-end, center, baseline
+    
+    align-content : 교차 축의 여러줄 동시 정렬
+    #.flex-wrap이 wrap으로 설정되어 있어야지 동작함
+    stretch : default
+    flex-end, center, space-between, space-around,space-evenly
+    */
