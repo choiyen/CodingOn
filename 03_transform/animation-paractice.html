@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: aqua;
+      /* animation: name duration timing-function(생략가능) delay(생략가능) iteration-count direction(생략가능) fill-mode(생략가능); */
+      position: relative;
+      border-radius: 50%;
+      animation-name: myanim;
+      animation-duration: 3s;
+      animation-iteration-count: 6;
+      /* 숫자 지정 or 무한 반복 */
+    }
+    @keyframes myanim {
+      0% {
+        left: 0px;
+        top: 0px;
+      }
+      25% {
+        left: 400px;
+        top: 0px;
+      }
+      50% {
+        left: 400px;
+        top: 400px;
+      }
+      75% {
+        left: 0;
+        top: 400px;
+      }
+      100% {
+        top: 0px;
+        left: 0px;
+      }
+    }
+  </style>
+  <body>
+    <div class="box"></div>
+  </body>
+</html>

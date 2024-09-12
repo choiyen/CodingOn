@@ -1,0 +1,223 @@
+/* 
+  TODO: HTML 요소들의 크기는 미리 설정해 두었습니다.
+  position, animation 등을 활용하여 과제를 완성해주세요!
+*/
+body {
+  width: 100%;
+  animation: sky 10s linear infinite;
+}
+
+section {
+  width: 700px;
+  height: 450px;
+  position: absolute;
+  /* 가운데 위치 시키기: top,left 각각 50%를 주면 배치하는 것의 왼쪽 꼭짓점이 정중앙에 오게 된다 */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+section .sky {
+  width: 100%;
+  height: 100%;
+  /* position: absolute; 
+     relative를 줘야 함.*/
+}
+
+section .sky .sun {
+  width: 180px;
+  top: 200px;
+  left: 200px;
+  animation-name: sum;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  position: absolute;
+  animation-timing-function: ease-in;
+}
+
+section .sky .moon {
+  width: 160px;
+  animation-name: moon;
+  top: 200px;
+  left: 200px;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  position: absolute;
+  animation-timing-function: ease-in;
+}
+
+section .sky .cloud_1 {
+  width: 160px;
+  position: relative;
+  animation-name: clould_1;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  position: absolute;
+  top: 300px;
+}
+
+section .sky .cloud_2 {
+  width: 90px;
+  animation-name: clould_2;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  position: absolute;
+  top: 400px;
+}
+
+section .city .city_img {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  margin-top: 450px;
+  margin-left: 300px;
+}
+
+/* ANIMATION */
+/* 
+  TODO:.5종류의 애니메이션이 필요함
+  - sun: sun.png가 회전하는 애니메이션
+  - moon: moon.png가 회전하는 애니메이션
+  - cloud_1: 큰 구름이 좌우로 이동하는 애니메이션
+  - cloud_2: 작은 구름이 좌우로 이동하는 애니메이션
+*/
+
+@keyframes sum {
+  0% {
+    transform: rotate(0deg);
+    opacity: 0;
+  }
+  20% {
+    transform: rotate(40deg);
+    opacity: 1;
+  }
+  40% {
+    transform: rotate(70deg);
+    opacity: 0.75;
+  }
+  50% {
+    transform: rotate(140deg);
+    opacity: 0.5;
+  }
+  60% {
+    transform: rotate(220deg);
+    opacity: 0.4;
+  }
+  70% {
+    transform: rotate(260deg);
+    opacity: 0.3;
+  }
+  80% {
+    transform: rotate(320deg);
+    opacity: 0.2;
+  }
+  100% {
+    transform: rotate(360deg);
+    opacity: 0;
+  }
+}
+@keyframes clould_1 {
+  0% {
+    left: 30px;
+    opacity: 1;
+  }
+  25% {
+    left: 400px;
+  }
+  50% {
+    left: 600px;
+    opacity: 0.5;
+  }
+  100% {
+    left: 1000px;
+    opacity: 0;
+  }
+}
+@keyframes clould_2 {
+  0% {
+    left: 30px;
+    opacity: 1;
+  }
+  25% {
+    left: 400px;
+  }
+  50% {
+    left: 600px;
+    opacity: 0.5;
+  }
+  100% {
+    left: 1000px;
+    opacity: 0;
+  }
+}
+@keyframes moon {
+  0% {
+    transform: rotate(-0deg);
+    opacity: 0;
+  }
+  20% {
+    transform: rotate(-40deg);
+    opacity: 0;
+  }
+  40% {
+    transform: rotate(-70deg);
+    opacity: 0.25;
+  }
+  50% {
+    transform: rotate(-140deg);
+    opacity: 0.5;
+  }
+  60% {
+    transform: rotate(-220deg);
+    opacity: 0.6;
+  }
+  70% {
+    transform: rotate(-260deg);
+    opacity: 0.7;
+  }
+  80% {
+    transform: rotate(-320deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: rotate(-360deg);
+    opacity: 1;
+  }
+}
+@keyframes sky {
+  0% {
+    background-color: #636888;
+  }
+  20% {
+    background-color: #675577;
+  }
+  40% {
+    background-color: #fcd2e2;
+  }
+  60% {
+    background-color: #b1e1e2;
+  }
+  80% {
+    background-color: #636888;
+  }
+  100% {
+    background-color: #636888;
+  }
+}
+
+/*
+  참고: 알아야 할 속성 소개
+  oapcity: 0 ~ 1 사이의 값으로 불투명도를 설정할 수 있음
+  - 0: 요소가 완전히 투명해 보이지 않음
+  - 0~1 사이의 값: 요소가 반투명해 뒤에 내용을 볼 수 있음
+  - 1: 요소가 불투명함 
+*/
+
+/*
+  참고: 배경 색상 종류
+  - background-color: #636888;
+  - background-color: #b1e1e2;
+  - background-color: #fcd2e2;
+  - background-color: #675577;
+  - background-color: #636888;
+*/

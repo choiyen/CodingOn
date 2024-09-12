@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>animation</title>
+  </head>
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: aqua;
+      /* animation: name duration timing-function(생략가능) delay(생략가능) iteration-count direction(생략가능) fill-mode(생략가능); */
+      position: relative;
+      animation-name: myanim;
+      animation-duration: 2s;
+      animation-iteration-count: 3;
+      /* 숫자 지정 or 무한 반복 */
+      animation-timing-function: ease;
+      animation-delay: 1s;
+    }
+
+    /* @keyframes 이름 
+     {
+        0%
+        {
+
+        }
+        50%
+        {
+
+        }
+        100%
+        {
+
+        }
+     } 특정 시간마다 다르게 애니메이션을 주고 싶을때.*/
+    @keyframes myanim {
+      0% {
+        left: 0px;
+        top: 0px;
+      }
+      25% {
+        left: 100px;
+        top: 100px;
+      }
+      50% {
+        left: 200px;
+        top: 200px;
+      }
+      75% {
+        left: 100px;
+        top: 300px;
+      }
+      100% {
+        left: 0px;
+        top: 400px;
+      }
+    }
+  </style>
+  <body>
+    <div></div>
+  </body>
+</html>

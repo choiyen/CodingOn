@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>transition 실습</title>
+  </head>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: black;
+      overflow: auto;
+      transition-property: width, height;
+      transition-duration: 1s;
+      transition-timing-function: linear;
+      transition-delay: 0.5s;
+      color: white;
+    }
+    .box:hover {
+      width: 300px;
+      height: 300px;
+    }
+  </style>
+  <body>
+    <h3>transition 실습</h3>
+    <div class="box">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque sunt
+      eveniet tenetur ipsa perferendis sit, debitis numquam minima distinctio
+      possimus recusandae quibusdam asperiores dolorem, vitae nobis, aperiam
+      dicta pariatur tempore.
+    </div>
+  </body>
+</html>
