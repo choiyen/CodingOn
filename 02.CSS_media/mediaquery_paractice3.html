@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/837ff3adc1.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      :root {
+        /* :root -> html 요소를 의미, <html> 태그 선택보다 우선 순위가 높다 */
+        /* 전역변수를 만들 때 많이 사용 */
+        --nav-height-lg: 100px;
+        --nav-height-sm: 60px;
+      }
+
+      body {
+        margin: 0;
+        /* 헤더 fixed 확인하기 위해 */
+        height: 2000px;
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      /* HEADER */
+      header {
+        width: 100%;
+        /* 변수 사용 시 var() */
+        height: var(--nav-height-lg);
+        z-index: 100;
+        /* 헤더 고정 & logo의 기준 */
+        position: fixed;
+      }
+
+      /* 768px 보다 클때의 header */
+      header .inner {
+        background-color: lightblue;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* LOGO */
+      header .inner .logo {
+        color: white;
+        font-size: 30px;
+
+        position: absolute;
+        left: 200px;
+      }
+
+      header .inner .menu {
+        display: flex;
+      }
+
+      header .inner .menu li {
+        margin: 0px 10px;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      @media screen and (max-width: 768px) {
+        header {
+          height: var(--nav-height-sm);
+        }
+        header .inner {
+          display: block;
+        }
+        header .inner .menu {
+          display: block;
+          background-color: azure;
+          text-align: center;
+        }
+        header .inner .logo {
+          /* position : static으로 사용하는 방법 */
+          /* position: static;
+          text-align: center;
+          height: var(--nav-height-sm);
+          line-height: var(--nav-height-sm);
+          /* 새로 설정한 속성이 없을 경우, 기존에 설정한 css가 적용되니 주의할 것. */
+          /* flex를 이용한 방법 */
+          display: flex;
+          height: var(--nav-height-sm);
+          justify-content: center;
+          align-items: center;
+          position: static;
+          width: 100%;
+        }
+
+        /* header .inner .logo 
+        {
+          position: absolute;
+          left: 300px;
+        } */
+
+        /* header .inner .menu 
+        {
+          width: 100%;
+          flex-direction: column;
+          position: relative;
+          top: 100px;
+          background-color: aliceblue;
+        }
+        header .inner .menu li {
+          text-align: center;
+          margin-bottom: 15px;
+        } */
+      }
+      /* 미디어 쿼리 작성 768px 이하일 때  */
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="inner">
+        <div class="logo">
+          <i class="fa-solid fa-igloo"></i>
+        </div>
+        <ul class="menu">
+          <li>메뉴1</li>
+          <li>메뉴2</li>
+          <li>메뉴3</li>
+          <li>메뉴4</li>
+        </ul>
+      </div>
+    </header>
+  </body>
+</html>

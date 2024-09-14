@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    let color = new Array(
+      "red",
+      "yellow",
+      "green",
+      "blue",
+      "pink",
+      "black",
+      "skyblue"
+    );
+    console.log(color[2]);
+    color.push("olive");
+    console.log(color);
+    console.log(color.indexOf("black")); //black이라는 요소의 인덱스 반환
+    const reverse = [...color].reverse();
+    //원본 데이터 값을 훼손하기에 배열을 산개해서 따로 출력해야 함.
+    console.log(reverse);
+    //console.log(출력할 값)
+    //conso.log("fd"); // error
+    //console.log("fdfd");
+    //해당 값은 출력되지 않음.
+  </script>
+  <style></style>
+  <body></body>
+</html>
+1

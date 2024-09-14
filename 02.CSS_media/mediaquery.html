@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    /* 기본으로 적용되는 속성은 반응형으로 변경되는 부분 위에 있어야함 */
+    .all {
+      background-color: red;
+    }
+    /* all : 모든 경우 */
+    @media all and (min-width: 300px) {
+      .all {
+        font-size: 2rem;
+        background-color: aqua;
+      }
+    }
+    /* print ; 인쇄 기기와 인쇄 미리보기에 적용됨 */
+    @media print and (min-width: 300px) {
+      .print {
+        font-size: 2rem;
+      }
+    }
+    /* screen : 프린터기 이외의 모든 기기 */
+    @media screen and (min-width: 300px) {
+      .screen {
+        font-size: 2rem;
+        /* 동일한 속성을 적용해본다면? */
+      }
+    }
+
+    @media (min-width: 300px) {
+      .no-media {
+        font-size: 2rem;
+      }
+    }
+    /* 미디어 타입을 작성하지 않은 경우는? */
+    /* 자동으로 all로 적용 */
+
+    /* .............. */
+    /* 크기 규칙을 정하지 않는 경우 */
+    @media all {
+      /* 미디어 타입의 유형만 판단함. */
+      .all {
+        font-size: 2rem;
+      }
+    }
+  </style>
+  <body>
+    <div class="all">all</div>
+    <div class="print">print</div>
+    <div class="screen">screen</div>
+    <div class="no-media">no-media</div>
+  </body>
+</html>

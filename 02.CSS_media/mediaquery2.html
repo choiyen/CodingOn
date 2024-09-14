@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>media query2</title>
+  </head>
+  <style>
+    @media screen and (orientation: landscape) {
+      body {
+        background-color: pink;
+      }
+    }
+    @media screen and (orientation: portrait) {
+      body {
+        background-color: gold;
+      }
+    }
+    /* ~부터 ~까지 범위 작성 */
+    @media screen and (min-width: 300px) and (max-width: 600px) {
+      /* 비교 연산자 사용 가능
+        @media screen and (300px <= width <= 600px) 와 동일 동작 */
+      div {
+        background-color: plum;
+      }
+    }
+  </style>
+  <body>
+    <div class="all">more and less</div>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    let hummen = {
+      name: "최연철",
+      age: 29,
+      phoneNumber: "010-xxxx-1459",
+      email: "yyy1459@naber.com",
+      mew: function () {
+        return "환영합니다.";
+      },
+    };
+    console.log(hummen);
+    console.log(hummen["name"]);
+    console.log(hummen["age"]);
+    console.log(hummen.phoneNumber);
+    console.log(hummen.email);
+    console.log(
+      "안녕하세요. " +
+        hummen.name +
+        "님의 나이는 " +
+        hummen["age"] +
+        "이고, 전화번호는 " +
+        hummen.phoneNumber +
+        "이고, 이메일은 " +
+        hummen.email +
+        "이 맞으시죠?"
+    );
+    console.log(hummen.mew);
+  </script>
+  <body></body>
+</html>
