@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    /**
+   * for(let i = 0; i < 10; i++)
+   * {
+   *    // 초기화 => 반복할 때 사용할 변수 i를 0으로 세팅
+   *    // 조건 => i가 10보다 작을 때 실행
+   *    // 증감식 => i를 1씩 키우겠다는 의미
+   *    // ex ) 2씩 증가 -> i = i + 2 or i += 2
+   * 
+   *    //실행할 코드
+   *    console.log("i :", i);
+   * }
+   * 
+   * // 출력 결과
+   * i : 0
+   * i : 1
+   * ..
+   * i : 9
+   
+    => 동일한 코드를 여러번 칠 수 없으니 반복을 해주기 위함.
+  */
+
+    let i = 0;
+    // while 문
+    while (i < 10) {
+      //i < 10이 참인 경우 실행할 코드
+      console.log("i :", i);
+      i++;
+    }
+
+    let i2 = 0;
+    //true  조건 사용
+
+    while (true) {
+      console.log("i2 :", i2);
+      i2++;
+      if (i2 > 10) {
+        console.log("while문 탈출!");
+        break;
+      }
+    }
+
+    //반복문 제어
+    //break : 반복문 밖으로 탈출
+    //continue // 하나의 반복 횟수를 벗어난다. 밑에 있는 것 실행 안됨.
+    // continue 밑의 코드는 실행 x, 증감식이 실행
+
+    for (let i = 0; i < 10; i++) {
+      if (i == 5) continue;
+      console.log("i : ", i);
+    }
+  </script>
+  <body></body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    let num1 = prompt("첫번째 숫자를 입력해주세요");
+    let num2 = prompt("두번째 숫자를 입력해주세요");
+    function add(num1, num2) {
+      alert(Number(num1) + Number(num2));
+    }
+    function mix(num1, num2) {
+      alert(Number(num1) * Number(num2));
+    }
+    function sub(num1, num2) {
+      alert(Number(num1) - Number(num2));
+    }
+    function divide(num1, num2) {
+      alert(Number(num1) / Number(num2));
+    }
+    //const sub = () => alert(Number(num1)+Number(num2));
+    //화살표 함수 사용시 함수 코드가 한줄이면 중괄호 생략 가능
+    //prompt는 문자열로 입력 받음, 빼기, 나누기, 곱하기는 자바스크립트에선 연산이 없어 자동 형변환됨.
+  </script>
+  <body>
+    <button onclick="add(num1,num2)">더하기</button>
+    <button onclick="sub(num1,num2)">빼기</button>
+    <button onclick="divide(num1,num2)">나누기</button>
+    <button onclick="mix(num1,num2)">곱하기</button>1
+  </body>
+</html>

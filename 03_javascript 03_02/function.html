@@ -33,17 +33,33 @@
       console.log("Hello3");
     };
     sayHello3();
+    let grade = 3; //전역 변수
 
     //매개 변수가 있는 경우
-    function hello(name) {
+    function hello(name, grade) {
+      //함수 안에서는 매개변수로 받아온 값을 우선시 함.
+      //안에서 선언된 변수는 지역 변수.
+      //파라미터 역시 또 하나의 변수.
       console.log(`안녕 내 이름은 ${name}이야`);
-      let age = 10;
-      return age;
+      let age = 10; //함수 hello 안에 선언한 변수 age
+      console.log("hello 함수 안에서 age :", age);
+      console.log("함수 안의 grade :", grade); //매개 변수로 선언한 값이 출력됨. 지역 변수 우선
+      console.log(`안녕 내 이름은 ${name}이야`);
+      return age; // age 값 반환, 함수가 끝남
+      console.log("안녕"); //return 밑에선 실행이 안됨.
     }
 
     hello("길동");
-    // console.log(age); // 호출되지 않음(범위를 벗어나면 못씀.)
-    console.log(hello("길동"));
+    //console.log(age); // 호출되지 않음(범위를 벗어나면 못씀.)
+    console.log(hello("길동", 4));
+    let age = hello("길동", 5);
+    console.log(age);
+    console.log("함수 밖 grade :", grade);
+    function test(num1, num2) {
+      //호출 여러개.
+    }
   </script>
-  <body></body>
+  <body>
+    <div onclick="dddd"></div>
+  </body>
 </html>

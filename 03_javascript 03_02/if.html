@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      /**
+       * if(조건1)
+       * {
+       *    조건 1이 참일때 실행될 코드
+       * }
+       * else if(조건 2)
+       * {
+       *   조건2가 참일 때 실행될 코드
+       *   조건이 여러개 일때 작생하면 됨(생략 가능)
+       * }
+       * else //if 안의 조건 1이 거짓이면 실행
+       * {
+       *    모든 조건들이 부합하지 않을 때 실행될 코드
+       * }
+       */
+
+      if (3 > 5) {
+        //조건이 가젓이기 때문에 출력이 안됨.
+        console.log("3>5");
+      }
+
+      if (3 < 5) {
+        //조건 식이 참이기 때문에 출력 가능함.
+        console.log("3 < 5");
+      }
+
+      let name = "황";
+
+      if (name == "이") {
+        console.log("이");
+      } else if (name == "김") {
+        console.log("김");
+      } else if (name == "석") {
+        console.log(석);
+      } else {
+        console.log("전부 거짓");
+      }
+
+      switch (name) {
+        case "김":
+          console.log("김");
+          break; //switch 문을 탈출함.
+        case "이":
+          console.log("이");
+          break;
+        case "황":
+          console.log("황");
+          break;
+        default:
+          // 기본값(위에 해당하는 값이 없을 때 기본으로 실행된 코드)
+          console.log("default!");
+      }
+
+      //3항 연산자
+      // 조건 ? 참일 때 : 가짓 일때;
+      let a = 10;
+      if (a > 10) {
+        console.log("a가 10보다 크다");
+      } else {
+        console.log("a가 10보다 크지 않다.");
+      }
+      // 이런 간단한 구조일 때는 줄일 수 있다.
+
+      a > 10
+        ? console.log("a가 10보다 크다")
+        : console.log("a가 10보다 크지 않다");
+
+      let b = a > 10 ? "a가 10보다 크다" : "a가 10보다 크지 않다";
+      console.log(b);
+    </script>
+  </head>
+  <body></body>
+</html>
