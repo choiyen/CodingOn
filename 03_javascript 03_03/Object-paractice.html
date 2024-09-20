@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    let Day = new Date();
+    let Days = Day.getDay();
+    console.log(Days);
+    if (Days == 0 || Days == 6) {
+      console.log("오늘은 주말입니다.");
+    } else {
+      console.log("오늘은 평일입니다.");
+    }
+
+    let ram = Math.floor(10 * Math.random() + 1);
+    console.log(`뽑힌 숫자는 ${ram} 입니다.`);
+  </script>
+  <body></body>
+</html>

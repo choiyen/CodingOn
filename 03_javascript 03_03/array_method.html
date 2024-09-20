@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배열 메소드</title>
+  </head>
+  <script>
+    //배열 메소드
+    let days = ["M", "T", "W", "T", "F", "S", "S"];
+
+    //마지막에 요소 추가
+    days.push("x");
+    console.log("days.push X : ", days);
+
+    // 마지막 요소를 삭제
+    days.pop();
+    console.log("days.pop:", days);
+
+    //맨 앞에 요소 추가
+    days.unshift("A");
+    console.log("days.unshift : ", days);
+
+    //맨 앞에 요소 삭제
+    days.shift();
+    console.log("days.shift :", days);
+
+    //요소 포함 검사 : true or false 반환
+    //includes(찾을요소, [검색을 시작할 인덱스]), 반환값 boolean
+    console.log("days.includes S : ", days.includes("S")); //true
+    console.log("days.includes B : ", days.includes("B")); //false
+
+    // 배열의 길이 속성
+    console.log("days.length : ", days.lengh); // 배열을 길이를 알려줌
+
+    // 인덱스 반환
+    console.log("days.indexOf  T: ", days.indexOf("T")); //1
+    console.log("days.indexOf B : ", days.indexOf("B")); // -1
+
+    //reverse : 배열의 순서를 바꾸는 메서드
+    let reverse = [...days];
+    console.log(reverse.reverse());
+
+    //배열을 연결해서 문자열로 반환
+    //join([연결고리])
+    console.log("days.join : ", days.join()); // ',' 연결
+    console.log("days.join(&) : ", days.join("&")); // &로 연결
+    console.log("days.join( ) : ", days.join(" ")); // 공백으로 연결
+    console.log("days.join('') : ", days.join("")); //공백도 없이 연결
+
+    //..............................................
+    // 메소드 체이닝
+    // 각각의 다른 메소드를 연결해서 사용하는 개념
+    // 주의할 점) 메소드의 반환 값이 있을 때만 사용 가능 -> 반환값이 배열의 형태여야 함.
+
+    // ex. 문자열을 꺼구로 뒤집고 싶음.
+    // -> 문자열에는 뒤집는 메서드 X -> 배열에 있는 reverse를 이용해야 겠다고 판단
+
+    let str = "Hello~";
+    let splitResult = str.split("");
+    console.log("splitResult : ", splitResult); //배열에 대핻앟느
+
+    let reverseResult = [...splitResult].reverse();
+    console.log("reverseResult : ", reverseResult);
+
+    let joinResult = reverseResult.join("");
+    console.log("joinResult :", joinResult); //거꾸로 된 문자열
+
+    //메소드 체이닝
+    console.log("메소드 체이닝 :", str.split("").reverse().join(""));
+  </script>
+  <body></body>
+</html>

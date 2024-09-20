@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    let count = [];
+
+    for (let i = 1; i <= 100; i++) {
+      count.push(i);
+    }
+    console.log(count);
+
+    let sum = 0;
+    for (let i = 0; i < count.length; i++) {
+      sum += count[i];
+    }
+    console.log("모든 수의 합은 : ", sum);
+
+    let sum2 = 0;
+    for (let s of count) {
+      sum2 += s;
+    }
+    console.log("모든 수의 합은 : ", sum2);
+
+    let sum3 = 0;
+    count.forEach((s, index) => (sum3 += s));
+    console.log("모든 수의 합은 : ", sum3);
+
+    let sum4 = count.reduce((acc, curr) => acc + curr);
+    console.log("모든 수의 합은 :", sum4);
+  </script>
+  <body></body>
+</html>

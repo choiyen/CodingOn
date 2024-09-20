@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    let fruit1 = [
+      "사과",
+      "딸기",
+      "파인애플",
+      "수박",
+      "참외",
+      "오랜지",
+      "자두",
+      "망고",
+    ];
+    let fruit2 = ["수박", "사과", "참외", "오랜지", "파인애플", "망고"];
+
+    const sum = [];
+    const dff = [];
+
+    let fruit3 = fruit1.filter((fruit) => fruit2.includes(fruit));
+    console.log(fruit3);
+
+    let fruits5 = fruit1.filter((fruit) => fruit2.includes(fruit) == false);
+    let fruits4 = fruit2.filter((fruit) => fruit3.includes(fruit) == false);
+
+    let fruits6 = [...fruits4, ...fruits5];
+    console.log(fruits6);
+
+    for (let fruit of fruit1) {
+      fruit2.includes(fruit) ? sum.push(fruit) : dff.push(fruit);
+    }
+
+    console.log(sum);
+    console.log(dff);
+
+    //reduce랑
+  </script>
+  <body></body>
+</html>

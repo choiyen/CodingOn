@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배열 반복문</title>
+  </head>
+  <script>
+    let fruits = ["apple", "banana", "melon", "grape"];
+
+    console.log("for basic");
+    for (let i = 0; i < fruits.length; i++) {
+      console.log(fruits[i]);
+    }
+    console.log("for of");
+    for (let fruit of fruits) {
+      console.log(fruit);
+    }
+
+    console.log("forEach");
+    // forEach(value: 하나하나의 요소, index: 인덱스 번호, array: 반복하는 배열 그 자체) => {})
+    fruits.forEach((fruit, index, arr) => {
+      console.log("fruit : ", fruit);
+      console.log("index :", index); //생략 가능
+      console.log("arr :", arr); //생략 가능
+    });
+
+    console.log("filter");
+    let filterResult = fruits.filter((fruit) => {
+      return fruit.length > 5;
+    });
+    console.log("filterResult : ", filterResult);
+
+    let filterResult2 = fruits.filter((fruit) => fruit.length > 5); // 동일한 형태
+    console.log("filterResult : ", filterResult);
+  </script>
+  <body></body>
+</html>
