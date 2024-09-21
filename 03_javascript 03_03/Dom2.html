@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="parent">
+      Text
+      <div id="two">div 두번째 Text</div>
+      <div>div 세번째 Test</div>
+    </div>
+    <script>
+      let parent = document.getElementById("parent");
+      console.log(parent);
+
+      //자식 값을 가져옴
+      let parentChildren = parent.children; //HTMLCollection
+      let parentChildNodes = parent.childNodes; //NodeList
+
+      console.log("parentChildren : ", parentChildren); // 테그 요소만 2
+      console.log("parentChildNodes : ", parentChildNodes); // 테그, 속성, 텍스트 모두 포함 5
+
+      //HTMLCollection 에서 자식 요소 접근 - namedItem
+      console.log("namedItem :", parentChildren.namedItem("two"));
+
+      // 2. 자식 추가(요소 추가)
+      // 요소를 추가하는 방법에는 순서가 존재한다.
+      // 1) 추가하고 싶은 위치에 있는 기준이 되는 요소 선택(부모나 형제 요소)
+      // 2) 추가할 요소 생성 : createElement("테그이름");
+      // 3) 요소를 추가해주면 된다.
+
+      // ex ) parent의 자식 요소로 추가
+      let child = document.createElement("div"); // 생성해줌
+      child.innerText = "네번째 텍스트"; // 요소 내용 추가
+      parent.appendChild(child); // 자식 요소로 추가
+
+      /*
+       테그 내부 내용을 변경
+        - innerText : 문자열을 넣는 거 & 공백 문자 제거
+        - innerHTML : HTML 요소를 넣는 거
+        - textContent : 문자열을 넣고 가져오고 등의 일을 할 수 있음. & 공백 문자 반환
+      */
+      let two = document.getElementById("two");
+      two.innerHTML = "강조";
+      two.innerText = "강조innerText";
+      two.innerHTML = "<strong>강조</strong>";
+      two.textContent =
+        "         textContent<strong>강조</strong>              & I";
+      console.log("공백 문자 반환되는 TextContent :", two.textContent);
+      console.log("공백 문자 반환되는 innerText :", two.innerText);
+    </script>
+  </body>
+</html>

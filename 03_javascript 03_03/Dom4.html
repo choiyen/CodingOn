@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM 다른 노드 접근</title>
+  </head>
+  <body>
+    <div class="cotainer">
+      <div class="box" id="green">1</div>
+      previous 테스트
+      <div class="box" id="red">2</div>
+      <div class="box">3</div>
+    </div>
+
+    <button onclick="getParent()">getParent</button>
+    <button onclick="pElsibling()">pElsibling</button>
+    <button onclick="pNoSibling()">pNoSibling</button>
+    <button onclick="nElsibling()">pElsibling</button>
+    <button onclick="nNoSibling()">pNoSibling</button>
+
+    <script>
+      let container1 = document.querySelector(".container");
+      let greenBox = document.getElementById("green");
+      let redBox = document.getElementById("red");
+
+      //자식 요소 접근
+      console.log("children  :", container1.children);
+
+      // parentNode 부모 요소 접근
+      function getParent() {
+        console.log(greenBox.parentNode);
+      }
+
+      //이전 형제
+      function pElsibling() {
+        console.log(redBox.previousElementSibling); // HTML 요소만
+      }
+      function pNoSibling() {
+        console.log(redBox.previousSibling); // 모든 노드 요소를 전부 포함
+      }
+
+      //다음 형제
+      function nElsibling() {
+        console.log(redBox.nextElementSibling); // HTML 요소만
+      }
+      function nNoSibling() {
+        console.log(redBox.nextSibling); // 모든 노드 요소를 전부 포함
+      }
+    </script>
+  </body>
+</html>

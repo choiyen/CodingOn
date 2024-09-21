@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM 클래스, 속성</title>
+    <style>
+      .box {
+        border: 1px solid black;
+        width: 100px;
+        height: 100px;
+      }
+      #green {
+        background-color: green;
+      }
+      .box1 {
+        border: 3px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box" id="green">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+    </div>
+
+    <button onclick="addClass()">addClass</button>
+    <button onclick="removeClass()">removeClass</button>
+    <button onclick="toggleClass()">toggleClass</button>
+
+    <input type="text" />
+    <script>
+      // 클래스 관련 메소드
+      let greenBox = document.getElementById("green");
+
+      //동적으로 처리
+      function addClass() {
+        // 요소.classList.add("클래스명");
+        greenBox.classList.add("box1");
+        console.log(greenBox.classList); //greenBox에 적용된 class확인
+      }
+
+      // 클래스 삭제
+      function removeClass() {
+        greenBox.classList.remove("box1");
+        console.log(greenBox.classList);
+      }
+
+      //클래스 유무 확인, true/false 반환
+      function containClass() {
+        console.log(greenBox.classList.containClass("box1"));
+      }
+
+      //클래스가 있으면 제거, 없으면 추가 (toggle)
+      function toggleClass() {
+        greenBox.classList.toggle("box1");
+      }
+
+      // ================== 속성 변경 메소드 ======================
+      let inputE1 = document.querySelector("input");
+      //요소.setAttribute("속성명","값");
+      inputE1.setAttribute("placeholder", "이름");
+      inputE1.placeholder = "이름을 입력하세요.";
+
+      inputE1.style = "color: red";
+    </script>
+  </body>
+</html>
