@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery</title>
+    <!--   jQuery CDN  -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      // $("선택자").동작함수()
+      function setValue() {
+        // 값을 설정하면 세팅을 바꾸는 것.
+        $("#input1").val("setting");
+        //document.getElementById("input1").value = "setting";
+        //-> 동일한 코드
+      }
+      function getValue() {
+        alert($("#input1").val());
+      }
+      function changeStyle() {
+        //js
+        //let span = document.querySelector("span");
+        //span.style = "font-size: 20px; color: red";
+
+        $("span").css("font-size", "20px");
+        $("span").css("color", "red");
+      }
+      function changeAttribute() {
+        // //JS
+        // let input = document.querySelector("input");
+        // input.setAttribute("placeholder", "안녕하세요");
+
+        //jQuery
+        $("input").attr("placeholder", "안녕하세요");
+      }
+
+      function changeText() {
+        // //JS
+        // let span = document.querySelector("span");
+        // span.innerText - "javascript로 바꾸는 방법";
+
+        //jQuery
+        $("span").text("jQuery로 바꾸는 방법");
+      }
+      function changHtml() {
+        //     //JS
+        //     let p = document.querySelector("p");
+        //     p.innerHTML = "<h1>Javascript</h1>";
+
+        //JQuery
+        $("p").html("<h1>Javascript</h1>");
+      }
+    </script>
+  </head>
+  <body>
+    <input type="text" id="input1" />
+
+    <button onclick="setValue()">SetValue</button>
+    <button onclick="getValue()">getValue</button>
+    <br />
+    <span>안녕</span>
+    <button onclick="changeStyle()">changeStyle</button>
+    <button onclick="changeAttribute()">changeAttribute</button>
+    <button onclick="changeText()">changeText</button>
+
+    <br />
+    <p style="background-color: orange">p테그</p>
+    <button onclick="changHtml()">changHtml</button>
+  </body>
+</html>

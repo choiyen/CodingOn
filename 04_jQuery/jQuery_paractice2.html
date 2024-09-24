@@ -1,0 +1,98 @@
+<html></html>
+  <head>
+    <!-- TODO1: jQuery CDN 불러오기 -->
+     <!-- 기본 jQuery CDN -->
+    <script
+    src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous"
+  ></script>
+  <!-- jQuery UI CDN : switchClass를 사용할 목적 -->
+  <script
+    src="https://code.jquery.com/ui/1.14.0/jquery-ui.min.js"
+    integrity="sha256-Fb0zP4jE3JHqu+IBB9YktLcSjI1Zc6J2b6gTjB0LpoM="
+    crossorigin="anonymous"
+  ></script>
+
+    <style>
+      div {
+        width: 100;
+        height: 100;
+      }
+
+      div:hover {
+        cursor: pointer;
+      }
+
+      .red {
+        background-color: red;
+      }
+
+      .orange {
+        background-color: orange;
+      }
+
+      .yellow {
+        background-color: yellow;
+      }
+
+      .green {
+        background-color: green;
+      }
+
+      .blue {
+        background-color: blue;
+      }
+
+      .purple {
+        background-color: purple;
+      }
+    </style>
+    <script>
+      let colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
+      let index = 0;
+
+      // TODO2: changeColor 함수 내부 작성
+      function changeColor() // random을 통한 렌덤 변경.
+      {
+          let rand = Math.floor(Math.random() * 6);
+          $("div").removeClass();
+          $("div").addClass("div");
+          $("div").addClass("div:hover");
+          console.log(rand);
+          $("div").addClass(`${colors[rand]}`);
+      }
+
+      function changeColor1() //color 순서대로 변경
+      {
+        if($("div").hasClass("purple"))
+        {
+          $("div").switchClass(`${colors[index]}`, `${colors[0]}`, 0)
+          index = 0;
+        }
+        else
+        {
+          $("div").switchClass(`${colors[index]}`, `${colors[index+1]}` , 0);
+          index++;
+        }
+      }
+      function changeColor3()
+     {
+        let now = $("div").attr("class");
+        let index = colors.indexOf(now);
+
+        if(index === colors.length - 1)
+        {
+          $("div").switchClass(colors[index], colors[0], 0);
+        }
+        $("div").switchClass(colors[index], colors[index+1], 0);
+        
+     }
+
+    </script>
+  </head>
+
+  <body>
+    <div class="red" onclick="changeColor3();" id = "main1"></div>
+  </body>
+</html>

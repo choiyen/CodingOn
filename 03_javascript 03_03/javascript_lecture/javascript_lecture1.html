@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM 이벤트리스너</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="div1">div1</div>
+      <div class="div2">div2</div>
+    </div>
+
+    <script>
+      let div1 = document.querySelector(".div1");
+
+      // click
+      // div1.addEventListener("click", function () {
+      //   console.log("div1에 click 이벤트 발생");
+      // });
+
+      div1.addEventListener("click", function (event) {
+        console.log("e.target :", event.target);
+        console.log("div1에 click 이벤트 발생");
+
+        const target = event.target; // 클릭한 요소를 의미
+        target.classList.add("click");
+      });
+    </script>
+  </body>
+</html>

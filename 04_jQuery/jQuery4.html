@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery 이벤트리스너</title>
+    <!-- 기본 jQuery CDN -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <!-- jQuery UI CDN : switchClass를 사용할 목적 -->
+    <script
+      src="https://code.jquery.com/ui/1.14.0/jquery-ui.min.js"
+      integrity="sha256-Fb0zP4jE3JHqu+IBB9YktLcSjI1Zc6J2b6gTjB0LpoM="
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      .container {
+        height: 5000px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <input type="text" />
+    </div>
+    <button>버튼</button>
+    <script>
+      //road 이벤트
+
+      // JS 로드 이벤트
+      window.addEventListener("load", function () {
+        $(".container").append("<h1>안녕1</h1>"); // 자바스크립트 로드 이벤트
+      });
+
+      // Jquery 로드 이벤트
+      $(function () {
+        $(".container").append("<h1>안녕2</h1>");
+      });
+
+      $(window).ready(function () {
+        $(".container").append("<h1>안녕3</h1>");
+      });
+
+      //마우스 이벤트
+      //click : 클릭이 일어났을 때
+      // $("button").click(function () {
+      //   alert("클릭!!");
+      // });
+
+      //ON() == addEventLister
+      $("button").on("click", function () {
+        alert("클릭!!!");
+      });
+
+      //mouseover : 요소 영역에 마우스가 올라가는 순간 실행됨.
+      $("button").mouseover(function () {
+        console.log("mouseover!!");
+      });
+
+      //hover : 요소  영역에 마우스가 올라가있는 동안 실행
+      $("button").hover(function () {
+        console.log("hover!!");
+      });
+
+      $(window).scroll(function () {
+        console.log("scroll!!!");
+      });
+
+      $("input").keyup(function (e) {
+        // 이벤트 객체도 어느 곳에서나 사용 가능
+        console.log("keyup!!");
+        console.log(e.target);
+        console.log(e.key == "Enter"); // 어떤 키를 눌렀는지 확인
+
+        console.log("this : ", this);
+      });
+    </script>
+  </body>
+</html>

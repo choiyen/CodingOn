@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM 이벤트리스너</title>
+    <style>
+      .container {
+        width: 100%;
+        height: 100px;
+        overflow: scroll;
+      }
+
+      div {
+        height: 300px;
+      }
+      .div1 {
+        background-color: aqua;
+      }
+      .div2 {
+        background-color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="div1">div1</div>
+      <div class="div2">div2</div>
+    </div>
+    <input type="text" />
+    <button onclick="getValue()">get value</button>
+
+    <script>
+      let div1 = document.querySelector(".div1");
+
+      // click
+      // div1.addEventListener("click", function () {
+      //   console.log("div1에 click 이벤트 발생");
+      // });
+
+      div1.addEventListener("click", function (event) {
+        console.log("e.target :", event.target);
+        console.log("div1에 click 이벤트 발생");
+
+        const target = event.target; // 클릭한 요소를 의미
+        target.classList.add("click");
+      });
+
+      // mouse
+      let div2 = document.querySelector(".div2");
+
+      div2.addEventListener("mouseover", function () {
+        console.log("div2에 mouseover 이벤트 발생");
+        div2.style.backgroundColor = "red";
+      });
+
+      div2.addEventListener("mouseout", function () {
+        console.log("div2에 mouseout 이벤트 발생");
+      });
+
+      // focus
+      let input = document.querySelector("input");
+      input.addEventListener("focus", function () {
+        console.log("input에 focus 이벤트 발생");
+      });
+
+      // keyboard
+      input.addEventListener("keydown", function (e) {
+        console.log("e :", e); // 이벤트 객체
+        console.log("e.target :", e.target);
+        console.log("e.target.value :", e.target.value);
+      });
+
+      function getValue() {
+        let input = document.querySelector("input");
+        console.log(input.value);
+        input.value = 123;
+      }
+
+      // scroll
+      let container = document.querySelector(".container");
+
+      container.addEventListener("scroll", function () {
+        console.log("container에 scroll 이벤트 발생");
+      });
+
+      // resize
+      window.addEventListener("resize", function () {
+        console.log("window에 resize 이벤트 발생");
+      });
+    </script>
+  </body>
+</html>
