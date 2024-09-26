@@ -31,7 +31,7 @@
     <div>
       날짜 : <input type="text" id="date" readonly /> <br />
       내용 : <input type="text" id="content" /> <br />
-      <button type="button" onclick="writeSchedule();">작성</button> <br />
+      <button type="button" onclick="writeSchedule()">작성</button> <br />
     </div>
     <div style="font-size: 2em; color: green; text-align: center">
       2022년 7월
@@ -39,7 +39,7 @@
 
     <br />
 
-    <table align="center" width="500" style="text-align: center">
+    <table align="center" width="500" style="text-align: center" name = "user">
       <tr>
         <th>日</th>
         <th>月</th>
@@ -107,17 +107,30 @@
     </table>
 
     <script>
-     $("td").on("click", function () 
+
+     let target; // 클릭한 요소를 저장.
+     $("td > p").on("click", function (e)  
      {
-        let count = $(this).text();
-        $("#date").val(count);
-     })
-     $("td").on("click", function () 
-     {
-        let count = $(this).text();
-        $("#date").val(count);
-     })
-     
+        console.log(e.target.textContent);//날짜의 데이터 값을 가져옴.
+        $("#date").val($(e.target).text());
+        target = e.target;
+     });
+     function writeSchedule()
+    {
+        let row = Math.floor((parseInt($("#date").val()) + 5)/7);
+        let cel = (parseInt($("#date").val()) + 5)%7 - 1;
+        let select = $("tbody").children(`tr:eq(${row+1})`).children(`td:eq(${cel})`);
+        select.append(`<p>${$("#content").val()}</p>`);
+    };
+    
+    // function writeSchedule()
+    // {
+    //   let content = $("#content").val();
+    //   $(target.parentNode).append(`<span>${content}</span> <br />`);
+    //   $(target).after(`<span>${content}</span> <br />`);
+    //   $("#content").val("");
+    //   $("#date").val("");
+    // };
     </script>
   </body>
 </html>
