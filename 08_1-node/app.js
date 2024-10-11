@@ -14,6 +14,7 @@ const math2 = require("./math2");
 console.log(math2.add(5, 3));
 console.log(math2.PI);
 
+//구조 분해 할당을 배운 이유.
 const { add, PI } = require("./math2");
 console.log(add(5, 3));
 console.log(PI);

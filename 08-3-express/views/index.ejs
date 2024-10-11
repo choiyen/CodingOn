@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/css/index.css" />
+  </head>
+  <body>
+    <!-- header include -->
+    <%- include('./components/header') %>
+    <h1>Hello EJS</h1>
+    <% for(let i = 0; i < 5; i++) {%>
+    <div>Hi <%= i %> 번째</div>
+    <% } %>
+    <!-- btns 버튼 출력 -->
+    <% console.log(btns) %> <% for(let btn of btns) {%>
+    <button><%= btn %></button>
+    <%}%>
+
+    <!-- ISLOGIN -->
+    <% if(!isLogin) { %>
+    <h4>아직 로그인을 안했군요!</h4>
+    <%} else {%>
+    <h4>로그인 완료!</h4>
+    <div><%= me.name %></div>
+    <div><%= me.msg %></div>
+    <% } %>
+    <!-- 대소문자 구분이 필요함. -->
+  </body>
+</html>
