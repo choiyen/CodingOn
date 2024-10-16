@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>일반 폼 전송(파일 업로드) 실습</h2>
+    <form action="/upload/practice" method="post" enctype="multipart/form-data">
+      <input type="text" name="id" placeholder="아이디" /><br />
+      <input type="text" name="pw" /><br />
+      <input type="text" name="name" /><br />
+      <input type="text" name="age" /><br />
+      <input type="file" name="profile" /><br />
+      <button>회원가입</button>
+    </form>
+  </body>
+</html>

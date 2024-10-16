@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .profile {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        box-shadow: 0 0 20px #0002;
+      }
+    </style>
+  </head>
+  <body>
+    <img class="profile" src="/<%= profile %>" alt="" />
+    <h3><%= user.id %>님 환영합니다!</h3>
+    <div>비밀번호 : <%= user.pw %></div>
+    <div>이름 : <%= user.name %></div>
+    <div>나이 : <%= user.age %></div>
+  </body>
+</html>
