@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .success {
+      color: blue;
+      font-weight: 700;
+    }
+    .error {
+      color: red;
+      font-weight: 700;
+    }
+  </style>
+  <!-- axios CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  <body>
+    <form name="login">
+      <label for="userId">아이디</label>
+      <input type="text" id="userId" name="userId" required />
+      <label for="userPw">비밀번호</label>
+      <input type="password" id="userPw" name="userPw" required />
+      <button type="button" onclick="clickLogin();">로그인</button>
+    </form>
+    <div class="login-result"></div>
+    <script>
+      const loginResult = document.querySelector(".login-result");
+
+      function clickLogin() {
+        const form = document.forms["login"];
+        const data = {
+          userId: form.userId.value,
+          userPw: form.userPw.value,
+        };
+        console.log(data);
+
+        axios({
+          method: "post",
+          url: "/ports",
+          data: data,
+        }).then((res) => {
+          console.log(res.data);
+          if (res.data.isSuccess) {
+            loginResult.textContent = `${res.data.userInfo.userId}님! 로그인 성공!`;
+            loginResult.classList.remove("error");
+            loginResult.classList.add("success");
+          } else {
+            loginResult.textContent = "아이디 또는 패스워드 오류!";
+            loginResult.classList.remove("success");
+            loginResult.classList.add("error");
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

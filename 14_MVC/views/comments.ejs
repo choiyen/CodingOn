@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>댓글 목록</title>
+  </head>
+  <body>
+    <h1>댓글 모음</h1>
+    <a href="/">홈으로 이동</a>
+    <ul>
+      <% for(let i = 0; i < commentinfos.length; i++) { %>
+      <li>
+        <b><%= commentinfos[i].userid%></b>
+        <a href="/comment/<%= i+1 %>"><%= commentinfos[i].comment %></a>
+      </li>
+      <% } %>
+    </ul>
+  </body>
+</html>

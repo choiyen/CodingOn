@@ -65,7 +65,7 @@ app.post("/practice2-post", (req, res) => {
   if (req.body.id === userID.id || req.body.password === userID.pw) {
     res.json({ userID: req.body, isSuccess: true });
   } else {
-    res.json({ isSuccess: false });
+    res.json({ isSuccess: false }); // 유저가 존재하지 않은 상황은 에러가 아님.
   }
 });
 
