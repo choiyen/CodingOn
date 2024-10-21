@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로그인</title>
+
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <h1>로그인</h1>
+    <form name="form_login">
+      <label for="userid">ID</label>
+      <input
+        id="userid"
+        type="text"
+        name="userid"
+        required
+        maxlength="20"
+      /><br />
+      <label for="password">Password</label>
+      <input
+        id="password"
+        type="password"
+        name="pw"
+        required
+        maxlength="20"
+      /><br />
+      <button type="button" onclick="login();">Login</button>
+    </form>
+
+    <a href="/user/signup">Register</a>
+
+    <script>
+      async function login() {
+        const form = document.forms["form_login"];
+
+        if (!form.checkValidity()) {
+          console.log("check");
+          form.reportValidity(); // 유저에게 validity 알려줌
+          return;
+        }
+
+        const { data } = await axios({
+          method: "POST",
+          url: "/user/signin",
+          data: {
+            userid: form.userid.value,
+            pw: form.pw.value,
+          },
+        });
+        console.log(data);
+        if (data.isLogin) {
+          alert("로그인 성공!");
+          // 로그인 성공 시 프로필 페이지로 이동
+          document.location.href = `/user/profile/${data.id}`;
+        } else {
+          alert("로그인 실패!");
+        }
+      }
+    </script>
+  </body>
+</html>

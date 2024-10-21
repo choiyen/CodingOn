@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src = "../static/login.js"></script>
+  
+    <!-- axios cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+  <form name="update-form">
+    <fieldset>
+      <legend>이름</legend>
+      <input type="text" name = "name" id = "name" maxlength="10" required >
+      <legend>아이디</legend>
+      <input type="text" name = "id" id = "userid" maxlength="20" required>
+      <legend>비밀번호</legend>
+      <input type="text" name = "pw" id = "pw" maxlength="10" required onclick="register()">
+    </fieldset>
+    <button type="button" onclick= "createlogin()">회원가입</button>
+    <button type="button" onclick="location.href='/'">취소</button>
+</body>
+</html>

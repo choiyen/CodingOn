@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>홈</title>
+    <link rel="stylesheet" href="../static/login.css" />
+    <script defer src="../static/login.js"></script>
+    <!-- axios cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <h1>MVC 패턴과 MySQL 연결</h1>
+    <form name="login-form">
+      <fieldset>
+        <legend>아이디</legend>
+        <input type="text" name="id" id="id" />
+        <legend>비밀번호</legend>
+        <input type="text" name="pw" id="pw" />
+        <div name="login-result" id="login-result"></div>
+        <button type="button" onclick="login()">로그인</button>
+        <button type="button" onclick="location.href = '/login'">
+          회원가입
+        </button>
+      </fieldset>
+    </form>
+    <br />
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입</title>
+
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <h1>회원가입</h1>
+    <form name="form_register">
+      <label for="userid">ID</label>
+      <input
+        id="userid"
+        type="text"
+        name="userid"
+        required
+        maxlength="20"
+      /><br />
+      <label for="password">Password</label>
+      <input
+        id="password"
+        type="password"
+        name="pw"
+        required
+        maxlength="20"
+      /><br />
+      <label for="nickname">Name </label>
+      <input
+        id="nickname"
+        type="text"
+        name="name"
+        required
+        maxlength="10"
+      /><br />
+      <button type="button" onclick="register();">Register</button>
+    </form>
+
+    <a href="/user/signin">Login</a>
+
+    <script>
+      async function register() {
+        const form = document.forms["form_register"];
+
+        if (!form.checkValidity()) {
+          console.log("check");
+          form.reportValidity(); // 유저에게 validity 알려줌
+          return;
+        }
+
+        const { data } = await axios({
+          method: "POST",
+          url: "/user/signup",
+          data: {
+            userid: form.userid.value,
+            pw: form.pw.value,
+            name: form.name.value,
+          },
+        });
+        console.log(data);
+        if (data.result) {
+          alert("회원가입 성공!");
+          // 가입 성공 시 로그인 페이지로 이동
+          document.location.href = "/user/signin";
+        }
+      }
+    </script>
+  </body>
+</html>

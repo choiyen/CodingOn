@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- axios cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../static/login.js"></script>
+    <link rel="stylesheet" href="../static/login.css">
+  </head>
+  <body>
+    <form name = "profile-form">
+      <fieldset>
+        <legend>현재 설정된 이름</legend>
+        <input type="text" name = "name" id = "name" value="<%= name %>" readonly/>
+        <legend>현재 설정된 아이디</legend>
+        <input type="text" name = "id" id = "id" value="<%=id %>" readonly />
+        <legend>비밀번호</legend>
+        <input type="password" name = "pw" id = "pw"/>
+        <legend>비밀번호 확인</legend>
+        <input type="password" name = "pw2" id = "pw2"/>
+      </fieldset>
+      <div id="button-group">
+      <button type="button" onclick="updatelogin()">
+        회원정보 수정
+      </button>
+      </div>
+      <button type="button" onclick="deletelogin('<%=name %>','<%=id %>')"">
+        회원정보 삭제
+      </button>
+      <div name = "result" id = "result"></div>
+    </form>
+    <script>
+      window.onload = () => {
+        editCancle();
+      }
+    </script>
+  </body>
+</html>
