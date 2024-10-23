@@ -1,7 +1,7 @@
 const express = require("express");
+const db = require("./models/index");
 const app = express();
 const PORT = 8000;
-const db = require("./models/index");
 
 app.set("view engine", "ejs");
 app.set("views", "./views");
@@ -23,8 +23,8 @@ app.get("*", (req, res) => {
 });
 
 db.sequelize.sync({ force: false }).then(() => {
-  //force : false => table이 없으면 생성
-  //force : true => table을 무조건 생성(만약 테이블이 있다면 다 삭제하고 다시 생성 -> prod에서 사용 X)
+  // force: false => 테이블이 없으면 생성
+  // force: true => 테이블 무조건 생성 (만약 테이블이 있다면 다 삭제하고 다시 생성 -> prod에서 사용 X)
   app.listen(PORT, () => {
     console.log(`http://localhost:${PORT}`);
   });
