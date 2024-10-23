@@ -1,0 +1,51 @@
+@server = http://localhost:8000
+
+@player_id = 6
+
+@team_id = 1
+
+### 전체 선수 조회
+GET {{server}}/players 
+
+### 특정 선수 조회
+GET {{server}}/players/{{player_id}}
+
+
+### 선수 추가
+POST {{server}}/players
+Content-Type: application/json; charset=UTF-8
+
+{
+  "name" : "손흥민",
+  "age" : 30,
+  "team_id" : 2
+}
+
+###특정 선수의 소속팀을 변경
+PATCH  {{server}}/players/{{player_id}}/team
+Content-Type: application/json; charset=UTF-8
+
+{
+  "team_id" : 4
+}
+
+### 특정 선수 삭제 (Player_id에 해당하는 Player, profile이 연쇄적으로 삭제된다.)
+DELETE {{server}}/players/{{player_id}}
+
+
+### 전체 팀 조회
+GET {{server}}/teams
+
+### 전체 팀 조회
+GET {{server}}/teams?sort=name_asc
+
+### 전체 팀 조회 - 팀 이름으로 검색
+GET {{server}}/teams?search=l
+
+
+### 특정 팀의 모든 선수 조회
+GET {{server}}/teams/{{team_id}}/players
+
+
+###특정 team_id 이상의 팀에 있는 선수 조회. 
+GET {{server}}/players?count=5
