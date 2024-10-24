@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- axios를 쓰기 위한 CDN 코드 -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <h2>Post 요청</h2>
+    <form action="/login" method="post">
+      <label for="id">ID</label>
+      <input
+        type="text"
+        name="id"
+        id="id"
+        required
+        placeholder="ID"
+        pattern="^([a-zA-Z0-9가-힣]){4,}"
+        title="아이디는 대소문자, 한글, 숫자로 구성된 4글자 이상의 문자여야 합니다."
+      />
+
+      <label for="pw">PW</label>
+      <input
+        type="password"
+        name="pw"
+        id="pw"
+        required
+        placeholder="PW"
+        pattern="([a-z0-9]){8,12}"
+        title="비밀번호는 영어 소문자와 숫자로 구성된 8~12자리 문자여야 합니다."
+      />
+      <button>제출</button>
+    </form>
+  </body>
+</html>
