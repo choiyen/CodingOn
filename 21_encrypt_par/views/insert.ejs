@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <form name="insert-form">
+      <input type="text" id="userid" placeholder="아이디" /> <br />
+      <input type="password" id="PW" placeholder="패스워드" /> <br />
+      <input type="text" id="name" placeholder="이름" /> <br />
+      <button type="button" onclick="insert()">회원가입</button>
+    </form>
+    <script>
+      function insert() {
+        const form = document.forms["insert-form"];
+        const { data } = axios({
+          method: "POST",
+          url: "/insert",
+          data: {
+            userid: form.userid.value,
+            Pw: form.PW.value,
+            name: form.name.value,
+          },
+        });
+      }
+    </script>
+  </body>
+</html>
