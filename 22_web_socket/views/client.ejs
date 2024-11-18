@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Socket 채팅</title>
+  </head>
+  <body>
+    <h1>채팅</h1>
+    <!-- 채팅 내역 -->
+    <ul></ul>
+
+    <!-- 채팅 입력 -->
+    <form id="chat">
+      이름 <input type="text" id="name" /> <br />
+      내용 <input type="text" id="message" /> <br />
+      <button>전송</button>
+    </form>
+  </body>
+  <script>
+    const socket = new WebSocket("ws://localhost:8000"); //ws : 프로토콜(암호화되지 않은 상태)
+    //페이지에 들어온 시점에 이미 연결 요청이 이뤄짐
+    console.log(socket);
+
+    const chatForm = document.querySelector("#chat");
+    const ul = document.querySelector("ul");
+
+    socket.addEventListener("open", (event) => {
+      console.log("[서버 연결 완료]");
+    });
+    socket.addEventListener("close", (event) => {
+      console.log("[서버 연결 종료]");
+    });
+
+    socket.addEventListener("error", (event) => {
+      console.log("에러 발생!", event.console.error);
+    });
+
+    socket.addEventListener("message", (event) => {
+      console.log(event);
+      const data = JSON.parse(event.data);
+      const { msg, name } = data;
+      const li = document.createElement("li");
+      li.textContent = `${name}님-  ${msg}`;
+      ul.append(li);
+    });
+
+    chatForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      //input에 입력한 정보를 바탕으로 메세지 데이터 생성
+      const data = {
+        msg: chatForm.message.value,
+        name: chatForm.name.value,
+      };
+
+      console.log("보내려는 메세지 데이터 ::", data);
+
+      //메세지 데이터를 웹 소캣 서버로 전송(send 메서드는 문자열과 이진 데이터 프레임만 전송 가능)
+      //JSON.stringify를 사용하여 문자열로 변환 후 전송
+      socket.send(JSON.stringify(data));
+
+      chatForm.reset();
+    });
+  </script>
+</html>

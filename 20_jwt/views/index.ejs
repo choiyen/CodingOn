@@ -3,13 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>JWT</title>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <h1>JWT 실습</h1>
     <div id="info"></div>
-    <div id="result"></div>
     <script>
       (async function () {
         const token = localStorage.getItem("token");
@@ -27,10 +26,7 @@
           });
 
           if (data.result) {
-            html = `<p> ${data.userInfo.name} 님 환영합니다. 자세한 정보를 보시려면 비밀번호를 입력하세요. </p>
-              <input type="password" name="pw" id="pw" placeholder="비밀번호" /> <br>
-              <button  type= "button" onclick ="selecting()"> 정보 확인 </button>
-              </form>
+            html = `<p> ${data.name} 님 환영합니다. </p>
               <button onclick ="logout()"> 로그아웃 </button>`;
           }
         }
@@ -39,18 +35,6 @@
       function logout() {
         localStorage.clear();
         document.location.reload();
-      }
-      async function selecting() {
-        const { data } = await axios({
-          method: "POST",
-          url: "/verify",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-
-        if (data.userInfo.pw == pw) {
-        }
       }
     </script>
   </body>

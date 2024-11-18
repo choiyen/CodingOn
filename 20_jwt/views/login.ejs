@@ -3,40 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>login</title>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
+    <h1>로그인</h1>
     <form name="login-form">
-      <fieldset>
-        <label for="id">아이디</label>
-        <input type="text" name="id" id="id" placeholder="아이디" /> <br />
-        <label for="pw">비밀번호</label>
-        <input type="password" name="pw" id="pw" placeholder="비밀번호" />
-      </fieldset>
+      <input type="text" id="id" placeholder="ID" /><br />
+      <input type="password" id="pw" placeholder="PW" /><br />
       <button type="button" onclick="login()">로그인</button>
     </form>
-    <div id="result"></div>
     <script>
       async function login() {
         const form = document.forms["login-form"];
         const { data } = await axios({
           method: "POST",
-          url: "/loginsuess",
+          url: "/login",
           data: {
             id: form.id.value,
-            Pw: form.pw.value,
+            pw: form.pw.value,
           },
         });
 
-        const result = document.querySelector("#result");
-        console.log(data.isSuccess);
-        if (data.isSuccess == true) {
+        if (data.result) {
           localStorage.setItem("token", data.token);
-          result.innerHTML = `아이디는 ${data.userInfo.userid} 이고, 이름은 ${data.userInfo.name}인 회원분 환영합니다.`;
           document.location.href = "/";
         } else {
-          result.innerHTML = data.message;
+          alert(data.message);
+          document.location.reload();
         }
       }
     </script>

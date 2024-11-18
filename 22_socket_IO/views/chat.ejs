@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="/socket.io/socket.io.js"></script>
+    <title>Socket.io 채팅</title>
+  </head>
+  <body>
+    <h1>My chat</h1>
+
+    <!-- [실습 1 : 각 버튼을 누를 때마다 서버로 메세지 전송] -->
+    <button onclick="sayHello()">Hello</button>
+    <button onclick="sayStudy()">Study</button>
+    <button onclick="sayBye()">Bye</button>
+
+    <p id="data-server"></p>
+  </body>
+  <script>
+    let socket = io.connect(); //소켓 사용을 위한 객체를 생성
+
+    socket.on("connect", () => {
+      console.log("클라이언트 연결 완료 :: ", socket.id);
+    });
+
+    socket.on("helloKr", (data) => {
+      document.querySelector(
+        "#data-server"
+      ).textContent = `${data.who} : ${data.msg}`;
+    });
+    socket.on("StudyKr", (data) => {
+      document.querySelector(
+        "#data-server"
+      ).textContent = `${data.who} : ${data.msg}`;
+    });
+    socket.on("ByeKr", (data) => {
+      document.querySelector(
+        "#data-server"
+      ).textContent = `${data.who} : ${data.msg}`;
+    });
+
+    function sayHello() {
+      socket.emit("hello", { who: "client", msg: "hello" });
+    }
+
+    function sayStudy() {
+      socket.emit("Study", { who: "client", msg: "Study" });
+    }
+
+    function sayBye() {
+      socket.emit("Bye", { who: "client", msg: "Bye" });
+    }
+  </script>
+</html>

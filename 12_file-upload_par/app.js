@@ -23,7 +23,7 @@ const uploadDetail = multer({
       const ext = path.extname(file.originalname); // 파일 "확장자"를 추출
       // console.log("ext", ext);
       // console.log(path.basename(file.originalname, ext));
-      // done(null, path.basename(file.originalname, ext) + Date.now() + ext);
+      //done(null, path.basename(file.originalname, ext) + Date.now() + ext);
 
       // 실습
       console.log("file name > req.body", req.body);

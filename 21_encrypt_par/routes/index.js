@@ -19,7 +19,8 @@ router.post("/insert", controller.insertlogin);
 // POST /로그인 페이지에서 profile 페이지로 데이터 보냄.
 router.post("/loginsuess", controller.loginsuess);
 
-//POST /로그인 페이지에서 id에 대한 중복 확인
-router.post("/duplication", controller.duplication);
+router.get("/profile", controller.profile);
+
+router.post("/verify", controller.verify);
 
 module.exports = router;

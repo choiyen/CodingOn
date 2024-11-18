@@ -1,0 +1,4 @@
+/node_modules
+package-lock.json
+.env
+#원래는 github에 등록하면 안됨.

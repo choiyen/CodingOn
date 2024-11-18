@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>socket.io room 기능</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="/static/chat.css" />
+  </head>
+  <body>
+    <!-- 채팅방, 닉네임 입력 -->
+    <div class="info-container">
+      <form id="room-info">
+        <input type="text" id="roomName" placeholder="채팅방" />
+        <input
+          type="text"
+          id="nickname"
+          placeholder="닉네임"
+          autofocus
+          onkeypress="if(window.event.keyCode === 13){join()}"
+        />
+        <button type="button" onclick="join()">만들기</button>
+      </form>
+      <h4>입장 가능한 채팅방 목록</h4>
+      <ul id="room-list"></ul>
+    </div>
+
+    <!-- 채팅 UI -->
+    <div class="chat-container d-none">
+      <div class="message-list">
+        <!-- 임시 대화 데이터 -->
+        <div class="message sent">안녕하세요!</div>
+        <div class="message received">반가워요!</div>
+      </div>
+
+      <!-- 메세지 전송 영역 -->
+      <div class="input-container">
+        <div class="select-wrapper">
+          <select class="nickname-select"></select>
+        </div>
+        <input
+          type="text"
+          id="message"
+          placeholder="메시지 입력..."
+          onkeypress="if(window.event.keyCode === 13){send()}"
+        />
+        <button onclick="send()">보내기</button>
+      </div>
+    </div>
+
+    <script>
+      const socket = io();
+      const roomInfo = document.querySelector("#room-info");
+      const roomName = roomInfo.querySelector("#roomName");
+      const nickname = roomInfo.querySelector("#nickname");
+      let myNick;
+
+      // 채팅방 생성, 입장
+      function join() {
+        // 빈 값 유효성 검사
+        if (roomName.value === "" || nickname.value === "") {
+          alert("채팅방 이름, 닉네임을 작성해주세요");
+          return;
+        }
+
+        const data = {
+          roomName: roomName.value,
+          nickname: nickname.value,
+        };
+
+        // 서버에 방 생성 요청
+        socket.emit("create", data, () => {
+          const infoContainer = document.querySelector(".info-container");
+          const chatContainer = document.querySelector(".chat-container");
+          infoContainer.classList.add("d-none");
+          chatContainer.classList.remove("d-none");
+
+          myNick = nickname.value;
+        });
+      }
+
+      socket.on("updateRoom", (roomList) => {
+        console.log("dfsafa");
+        const room_list = document.querySelector("#room-list");
+        room_list.textContent = "";
+        console.log(roomList);
+        roomList.forEach((room) => {
+          console.log(room);
+          const li = document.createElement("li");
+          li.innerHTML = `${room} <button onclick = "enterRoom('${room}')">입장 </button>`;
+          room_list.append(li);
+        });
+      });
+      function enterRoom(room) {
+        roomName.value = room;
+        nickname.focus();
+        roomInfo.querySelector("button").textContent = "입장";
+      }
+
+      // [실습3] 채팅창 입장 문구
+      socket.on("notice", (msg) => {
+        document
+          .querySelector(".message-list")
+          .insertAdjacentHTML("beforeend", `<div class="notice">${msg}</div>`);
+      });
+      socket.on("userList", (userList) => {
+        let options = `<option value="all">전체</option>`;
+        // 본인 제외하고 option 추가
+        for (let user of userList) {
+          if (user.key !== socket.id) {
+            options += `<option value="${user.key}">${user.nickname}</option>`;
+          }
+        }
+        document.querySelector(".nickname-select").innerHTML = options;
+      });
+      function send() {
+        const data = {
+          dm: document.querySelector(".nickname-select").value,
+          nick: myNick,
+          msg: document.querySelector("#message").value,
+          room: roomName.value,
+        };
+        socket.emit("send", data);
+        document.querySelector("#message").value = "";
+      }
+      //채팅창에 주고 받은 메세지 표시
+      socket.on("showMessage", (data) => {
+        const chatList = document.querySelector(".message-list");
+        const div = document.createElement("div");
+        console.log(data);
+        if (myNick == data.nick) {
+          div.classList.add("message", "sent");
+        } else {
+          div.classList.add("message", "received");
+        }
+
+        if (data.dm) {
+          div.classList.add("dm");
+          div.textContent = data.dm;
+        }
+
+        div.textContent += `${data.nick} : ${data.msg}`;
+        chatList.append(div);
+        //메세지가 많아져서 스크롤이 발생하여도 하단에 고정됨.
+        chatList.scrollTop = chatList.scrollHeight;
+      });
+    </script>
+  </body>
+</html>

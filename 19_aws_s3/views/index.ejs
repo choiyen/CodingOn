@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>S3 업로드</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <form onsubmit="fileUpload(event)">
+      <input type="file" id="files" multiple /><br />
+      <button type="submit">업로드</button>
+    </form>
+    <br />
+    <div class="result"></div>
+
+    <script>
+      const resultBox = document.querySelector(".result");
+      async function fileUpload(e) {
+        e.preventDefault();
+
+        // 파일 가져오기
+        const fileInput = document.querySelector("#files");
+        console.log(fileInput.files);
+
+        // 폼 데이터 생성
+        const formData = new FormData();
+        for (let i = 0; i < fileInput.files.length; i++) {
+          formData.append("files", fileInput.files[i]);
+        }
+
+        try {
+          const { data } = await axios({
+            method: "POST",
+            url: "/upload",
+            data: formData,
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          });
+          data.forEach((element) => {
+            const img = document.createElement("img");
+            img.src = element.location;
+            img.style.width = "400px";
+            resultBox.append(img);
+          });
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    </script>
+  </body>
+</html>

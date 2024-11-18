@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>socket.io 채팅</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="/static/chat.css" />
+  </head>
+  <body>
+    <h1>My Chat</h1>
+
+    <!-- [실습1] 각 버튼 누를 때 마다 서버로 메시지 보내기 -->
+    <!-- <button onclick="sayHello()">Hello</button>
+    <button onclick="sayStudy()">Study</button>
+    <button onclick="sayBye()">Bye</button>
+    <p id="data-server"></p> -->
+
+    <!-- [실습3-2] 닉네임 입력 폼 -->
+    <div class="entry-box">
+      <input
+        type="text"
+        id="nickname"
+        placeholder="닉네임"
+        autofocus
+        onkeypress="if(window.event.keyCode === 13){join()}"
+      />
+      <button onclick="join()">입장</button>
+    </div>
+
+    <!-- [실습2] 채팅 UI -->
+    <div class="chat-container d-none">
+      <div class="message-list">
+        <!-- 임시 대화 데이터 -->
+        <div class="message sent">안녕하세요!</div>
+        <div class="message received">반가워요!</div>
+      </div>
+
+      <!-- 메세지 전송 영역 -->
+      <div class="input-container">
+        <div class="select-wrapper">
+          <select class="nickname-select"></select>
+        </div>
+        <input
+          type="text"
+          id="message"
+          placeholder="메시지 입력..."
+          onkeypress="if(window.event.keyCode === 13){send()}"
+        />
+        <button onclick="send()">보내기</button>
+      </div>
+    </div>
+
+    <script>
+      let socket = io.connect(); // 소켓 사용을 위한 객체 생성
+      let myNick;
+
+      socket.on("connect", () => {
+        console.log("클라이언트 연결 완료 :: ", socket.id);
+      });
+
+      // [실습1]
+      // function sayHello() {
+      //   socket.emit("hello", { who: "client", msg: "hello" });
+      // }
+
+      // socket.on("helloKr", (data) => {
+      //   document.querySelector(
+      //     "#data-server"
+      //   ).textContent = `${data.who} : ${data.msg}`;
+      // });
+
+      // [실습3] 채팅창 입장 문구
+      socket.on("notice", (msg) => {
+        document
+          .querySelector(".message-list")
+          .insertAdjacentHTML("beforeend", `<div class="notice">${msg}</div>`);
+      });
+
+      // [실습3-2] 채팅창 입장 문구 socket.id -> nickname
+      function join() {
+        socket.emit("setNick", document.querySelector("#nickname").value);
+      }
+
+      // 입장 성공
+      socket.on("entrySuccess", (nickname) => {
+        document.querySelector("#nickname").disabled = true;
+        document.querySelector(".entry-box > button").disabled = true;
+        document.querySelector(".chat-container").classList.remove("d-none");
+        myNick = nickname;
+      });
+
+      // 닉네임 중복일 경우
+      socket.on("error", (error) => {
+        alert(error);
+      });
+
+      // 닉네임 리스트 업데이트
+      socket.on("updateNicks", (nickObjs) => {
+        let options = `<option value="all">전체</option>`;
+
+        // 본인 제외하고 option 추가
+        for (let key in nickObjs) {
+          if (key !== socket.id) {
+            options += `<option value="${key}">${nickObjs[key]}</option>`;
+          }
+        }
+        document.querySelector(".nickname-select").innerHTML = options;
+      });
+      //실습4 : 채팅창 메세지 전송
+      function send() {
+        const data = {
+          dm: document.querySelector(".nickname-select").value,
+          myNick,
+          msg: document.querySelector("#message").value,
+        };
+        socket.emit("send", data);
+        document.querySelector("#message").value = "";
+      }
+
+      //채팅창에 주고 받은 메세지 표시
+      socket.on("showMessage", (data) => {
+        const chatList = document.querySelector(".message-list");
+        const div = document.createElement("div");
+
+        if (myNick == data.nick) {
+          div.classList.add("message", "sent");
+        } else {
+          div.classList.add("message", "received");
+        }
+
+        if (data.dm) {
+          div.classList.add("dm");
+          div.textContent = data.dm;
+        }
+
+        div.textContent += `${data.nick} : ${data.msg}`;
+        chatList.append(div);
+        //메세지가 많아져서 스크롤이 발생하여도 하단에 고정됨.
+        chatList.scrollTop = chatList.scrollHeight;
+      });
+    </script>
+  </body>
+</html>
