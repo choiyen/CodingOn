@@ -1,5 +1,5 @@
 import logo from "./logo.svg";
-import "./App.css";
+import "./App.css"; // 이런식으로 src에 넣어서 씀.
 
 function App() {
   const name = "dddd";
