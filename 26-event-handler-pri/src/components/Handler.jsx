@@ -1,18 +1,20 @@
 import React from "react";
 
-export default function Handler({ color }) {
+export default function Handler(props) {
+  const { img, backcolor, color, text } = props.color;
+  console.log(color);
+
   return (
     <div>
-      <img src={`${color.img}`} alt={color.img} />
+      <img src={`${img}`} alt={img} />
       <div
         style={{
-          backgroundColor: color.backcolor,
-          color: color.color,
+          backgroundColor: backcolor,
+          color: color,
           height: "50px",
         }}
       >
-        {color.img}
-        {color.text}
+        {text}
       </div>
     </div>
   );
