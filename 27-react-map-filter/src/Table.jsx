@@ -19,6 +19,8 @@ export default function Table() {
       conment: conment,
     };
 
+    this.setState({ number: number + 1 });
+
     // const newfulllist = fulllist.concat({
     //   id: fulllist.length + 1,
     //   name: name,
