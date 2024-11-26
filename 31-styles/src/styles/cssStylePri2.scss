@@ -1,0 +1,58 @@
+$color-first: pink;
+$color-second: yellow;
+$color-third: green;
+
+@mixin animation-rotate($name, $size) {
+  //이름을 지정하지 않으면 동일한 키프레임이 됨.
+  /* animation: name duration timing-function(생략가능) delay(생략가능) iteration-count direction(생략가능) fill-mode(생략가능); */
+  animation-name: #{$name};
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  /* 숫자 지정 or 무한 반복 */
+
+  @keyframes #{$name} {
+    0% {
+      left: 0;
+      top: 0;
+    }
+    25% {
+      left: 0;
+      top: $size;
+    }
+    50% {
+      left: $size;
+      top: $size;
+    }
+    75% {
+      left: 0;
+      top: $size;
+    }
+    to {
+      top: 0;
+      left: 0;
+    }
+  }
+}
+
+@mixin mover() {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  border-radius: 50%;
+}
+
+.pink {
+  background-color: $color-first;
+  @include mover();
+  @include animation-rotate(pink-move, 10vw);
+}
+.yellow {
+  background-color: $color-second;
+  @include mover();
+  @include animation-rotate(yellow-move, 20vw);
+}
+.green {
+  background-color: $color-third;
+  @include mover();
+  @include animation-rotate(green-move, 30vw);
+}

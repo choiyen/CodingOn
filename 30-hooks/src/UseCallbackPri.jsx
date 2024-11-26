@@ -4,6 +4,7 @@ export default function UseCallbackPri() {
   const [Items, setItems] = useState(["item1", "item2", "item3"]);
   const [EditItem, setEditItem] = useState(""); //수정할 녀석(idx로 하지 않으면 동일한 정보가 들어갈 때 오류 발생)
   const refinput = useRef();
+
   const handleEdit = useCallback(
     (item) => {
       setEditItem(item);

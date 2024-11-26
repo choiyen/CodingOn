@@ -1,0 +1,6 @@
+// scss 파일 명 앞에 _의미
+// : 이 파일은 css 파일로 변환될 필요가 없음을 알려줌
+@mixin box($size) {
+  width: $size;
+  height: $size;
+}
