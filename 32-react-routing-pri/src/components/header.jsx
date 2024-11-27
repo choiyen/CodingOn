@@ -16,7 +16,7 @@ export default function Header() {
           <Link to="/Student/codingon">코딩온</Link>
         </li>
         <li>
-          <Link to="/Student/new?name=kdt3rd">searchParams</Link>
+          <Link to="/Student/new?name=kdt14th">searchParams</Link>
         </li>
       </ul>
     </header>
