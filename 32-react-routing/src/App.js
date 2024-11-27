@@ -32,7 +32,10 @@ function App() {
             path="/products"
             element={<ProductPage products={products} />}
           />
-          <Route path="/products/:id" element={<ProductDetailPage />} />
+          <Route
+            path="/products/:id"
+            element={<ProductDetailPage products={products} />}
+          />
         </Routes>
       </BrowserRouter>
     </div>
