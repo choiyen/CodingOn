@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import { useDispatch, useSelector } from "react-redux";
+import { MINUS, PLUS } from "./store/counterReducer";
 
 function App() {
   //store에 있는 상태 가져오기 - useSelector 이용
@@ -53,8 +54,8 @@ const Box4 = () => {
   return (
     <div className="box">
       <h1>Box4</h1>
-      <button onClick={() => dispatch({ type: "PLUS" })}>Plus</button>
-      <button onClick={() => dispatch({ type: "MINUS" })}>minus</button>
+      <button onClick={() => dispatch({ type: PLUS })}>Plus</button>
+      <button onClick={() => dispatch({ type: MINUS })}>minus</button>
     </div>
   );
 };
