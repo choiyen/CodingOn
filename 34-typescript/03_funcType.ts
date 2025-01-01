@@ -61,6 +61,7 @@ function sum1(a: number, b: number): void {
   console.log(a + b);
 }
 sum1(5, 11);
+
 function sum2(...params: Array<number>) {
   let count = 0;
   const params1 = [...params];

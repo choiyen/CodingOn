@@ -45,6 +45,7 @@ interface Phone<T> {
   createdAT: Date;
   option: T;
 }
+
 type iphoneOption = {
   color: string;
   storage: number;

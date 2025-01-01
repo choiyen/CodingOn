@@ -48,10 +48,10 @@
         // 파일 데이터를 전송할 떄 FormData 객체를 활용할 것임.
         //FormData란?
         // form 테그의 데이터를 동적으로 제어할 수 있는 기능
-        const formData = new FormData();
         const file = document.querySelector("#dynamic-file");
         console.log(file);
         console.log(file.files);
+        const formData = new FormData();
         formData.append("dynamicUserFile", file.files[0]);
         axios({
           method: "post",
